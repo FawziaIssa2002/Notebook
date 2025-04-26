@@ -1,0 +1,107 @@
+/* تسليط الضوء على العنوان */
+h1 {
+  color: #333;
+  font-size: 24px;
+  text-align: center;
+}
+
+/* حاشية الإدخال والزر */
+input, button {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  text-align: center;
+
+}
+
+/* تخصيص زر الإضافة */
+button {
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* تنسيق قائمة الملاحظات */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 5px 0;
+  padding: 10px;
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* زر التعديل */
+.edit-button {
+  background-color: #5bc0de;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 40px; /* زيادة حجم الزر */
+  font-size: 25px; /* تغيير حجم الخط */
+  margin-right: auto; /* تقليل المسافة بين الأزرار */
+  cursor: pointer;
+}
+
+
+.edit-button:hover {
+  background-color: #31b0d5;
+}
+
+/* زر الحذف */
+.delete-button {
+  background-color: #ff5252;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 40px; /* زيادة حجم الزر */
+  font-size: 25px; /* تغيير حجم الخط */
+  margin-left: auto;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #d71b1b;
+}
+
+
+.note-list {
+  list-style: none;
+  padding: 0;
+}
+
+.note-item {
+  /* display: flex; */
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  margin-bottom: 8px;
+  padding: 10px;
+}
+
+.note-content {
+  flex-grow: 1;
+}
+
+.item-number {
+  margin-right: 8px;
+  font-size: 1.2em;
+  color: #555;
+}
+
+.note-buttons button {
+  margin-left: auto;
+}
