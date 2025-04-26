@@ -17,23 +17,22 @@ app.use(express.json());
  app.use(cors(corsOption));
  app.use(cors(corsOption));
 
-// const mongoURI = "mongodb+srv://user1:DbYxM0iQZNVD9mdZ@notebook.pmacxk5.mongodb.net/";
 const mongoURI = "mongodb+srv://admin:admin@notebook.pmacxk5.mongodb.net/";
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log(chalk.yellow('Connected to the database')))
   .catch(err => console.error(chalk.red('An error occurred while connecting to the database.'), err));
 
-// استخدام body-parser لمعالجة البيانات
+
 app.use(bodyParser.json());
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:3001'); // يمكنك تحديد المصدر الخاص بك هنا بدلاً من '*'
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3001'); 
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.header('Access-Control-Allow-Headers', 'Content-Type');
   next();
 });
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-// إضافة مفكرة جديدة
+
 app.post('/notesAdd', (req, res) => {
   const newNote = req.body.note; // افترض أن البيانات الجديدة تأتي في req.body.note
 
@@ -41,7 +40,7 @@ app.post('/notesAdd', (req, res) => {
     Note.collection.insertOne({ content: newNote })
       .then(addedNote => {
         console.log(addedNote);
-        res.status(201).json(addedNote.ops[0]); // ops[0] للحصول على البيانات المضافة
+        res.status(201).json(addedNote.ops[0])  ;
       })
       .catch(err => {
         console.error(err);
@@ -84,8 +83,7 @@ app.put('/notesUpdate/:id', (req, res) => {
 // حذف مفكرة بناءً على معرفها
 app.delete('/notesDelete/:id', (req, res) => {
   if (ObjectId.isValid(req.params.id)){
-  // const note = req.body.note;
-    // console.log( req.params.id );
+
     Note.collection.deleteOne({ _id: new ObjectId(req.params.id) })
     .then(removedNote => {
       console.log(removedNote);
