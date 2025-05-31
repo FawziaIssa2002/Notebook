@@ -5,15 +5,15 @@ import DataItem from './DataItem';
 import './App.css';
 
 function App() {
-
+  // getdata();
   const [notes, setNotes] = useState([]);
-  const [newNote, setNewNote] = useState(''); 
+  const [newNote, setNewNote] = useState(''); // تغيير اسم المتغير إلى newNote
   const [editingIndex, setEditingIndex] = useState(-1);
 
 
   const [data, setData] = useState([]);
 
-  const apiUrl = '//localhost:3000'; 
+  const apiUrl = '//localhost:3000';
 
   const addNoteToServer = async (note) => {
     try {
@@ -53,14 +53,12 @@ const deleteNoteFromServer = (note) => {
   };
 
   useEffect(() => {
-
     fetchData();
-
 
     const intervalId = setInterval(fetchData, 500);
 
     return () => clearInterval(intervalId);
-  }, []); // [] يضمن أن useEffect يستدعى مرة واحدة عند التحميل الأولي
+  }, []);
 
 
 
